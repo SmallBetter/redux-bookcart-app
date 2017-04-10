@@ -1,6 +1,7 @@
 const TYPE = {
-  EXAMPLE: {
-    INCREASE: 'EXAMPLE_INCREASE'
+  BOOK: {
+    ADD: 'BOOK_ADD',
+    REMOVE: 'BOOK_REMOVE'
   }
 }
 

@@ -1,17 +1,18 @@
-form {
+.div {
   margin: 0 auto;
   width: 600px;
   padding: 1em;
   border: 2px solid #000000;
 }
 
-form div {
+.div div {
   margin-top: 1em;
   text-align: left;
 }
 
-form button {
+.div button {
   margin-top: 1em;
+
 }
 
 label {

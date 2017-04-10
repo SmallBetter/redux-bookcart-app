@@ -4,13 +4,15 @@ export const initialStore = {
       isbn: 5124257,
       name: 'Smallbetter 1',
       price: 200,
-      quantity: 15
+      quantity: 15,
+      totalprice: 3000
     },
     {
       isbn: 5124255,
       name: 'Smallbetter 2',
       price: 100,
-      quantity: 2
+      quantity: 2,
+      totalprice: 200
     }
   ]
 }
