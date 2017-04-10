@@ -1,8 +1,8 @@
-import exampleReducer from '../example'
+import exampleReducer from '../book'
 import TYPE from '../../actions/types'
 import { initialStore } from '../../store'
 
-describe('Example Reducer', () => {
+describe('BookInput Reducer', () => {
   it(TYPE.EXAMPLE.INCREASE, () => {
     const currentState = {
       number: 5

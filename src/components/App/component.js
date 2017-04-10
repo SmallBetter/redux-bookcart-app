@@ -1,5 +1,5 @@
 import React from 'react'
-import Example from '../Example'
+import Example from '../BookInput'
 import logo from './assets/logo.svg'
 import './assets/style.css'
 
@@ -10,7 +10,7 @@ const App = () => (
       <h2>Welcome to React</h2>
     </div>
     <div className="App-intro">
-      vCode Dev-Tools<br /><br />
+      Add New Book<br /><br />
       <Example />
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import example from './example'
+import example from './book'
 
 export const reducers = {
   example
