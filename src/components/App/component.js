@@ -1,5 +1,6 @@
 import React from 'react'
 import Example from '../BookInput'
+import BookList from '../BookList'
 import logo from './assets/logo.svg'
 import './assets/style.css'
 
@@ -12,6 +13,7 @@ const App = () => (
     <div className="App-intro">
       Add New Book<br /><br />
       <Example />
+      <BookList />
     </div>
   </div>
 )

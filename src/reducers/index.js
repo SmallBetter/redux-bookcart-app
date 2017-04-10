@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import example from './book'
+import books from './books'
 
 export const reducers = {
-  example
+  books
 }
 
 export const rootReducers = combineReducers(reducers)

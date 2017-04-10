@@ -1,10 +1,10 @@
 import { initialStore } from '../store'
 
 
-export default (book = initialStore.book, action) => {
+export default (books = initialStore.books, action) => {
   switch (action.type) {
     default: {
-      return book
+      return books
     }
   }
 }

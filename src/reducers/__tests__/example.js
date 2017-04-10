@@ -1,4 +1,4 @@
-import exampleReducer from '../book'
+import exampleReducer from '../books'
 import TYPE from '../../actions/types'
 import { initialStore } from '../../store'
 

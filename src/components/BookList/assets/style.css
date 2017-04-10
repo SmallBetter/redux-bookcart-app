@@ -1,0 +1,37 @@
+
+table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 2px solid #cbcbcb;
+}
+
+th {
+  width: 150px;
+  border-left: 2px solid #cbcbcb;
+  font-size: inherit;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0.5rem 1rem;
+
+}
+
+td {
+  border-left: 2px solid #cbcbcb;
+  font-size: inherit;
+  margin: 0 auto;
+  overflow: visible;
+  padding: 0.5rem 1rem;
+}
+
+thead {
+  background-color: #7740e0;
+  color: #ffffff;
+  text-align: left;
+  vertical-align: bottom;
+}
+button {
+  margin: 2px;
+}
+

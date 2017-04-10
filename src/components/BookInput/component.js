@@ -1,7 +1,7 @@
 import React from 'react'
 import './assets/style.css'
 
-const Example = () => (
+const BookInput = () => (
   <form>
     <div>
       <label htmlFor="ISBN">ISBN :</label>
@@ -25,4 +25,4 @@ const Example = () => (
   </form>
 )
 
-export default Example
+export default BookInput
