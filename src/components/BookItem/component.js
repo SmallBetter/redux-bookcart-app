@@ -4,6 +4,7 @@ import './assets/style.css'
 class BookItem extends Component {
 
   state = {
+    isbn: this.props.isbn,
     name: this.props.name,
     price: this.props.price,
     quantity: this.props.quantity
@@ -25,6 +26,16 @@ class BookItem extends Component {
     })
   }
 
+  handleClick = () => {
+    this.props.editBook({ ...this.state })
+    this.setState({
+      isbn: this.props.isbn,
+      name: this.props.name,
+      price: this.props.price,
+      quantity: this.props.quantity
+    })
+  }
+
   renderForm = () => {
     if (!this.props.isediting) {
       return (<tr>
@@ -34,7 +45,7 @@ class BookItem extends Component {
         <td><input type="text" value={this.state.quantity} onChange={this.handlequantity} /></td>
         <td>{this.props.totalprice}</td>
         <td>
-          <button onClick={() => this.props.toggleBook(this.props.isbn)}>Save</button>
+          <button onClick={this.handleClick}>Save</button>
           <button onClick={() => this.props.removeBook(this.props.isbn)}>Delete</button>
         </td>
       </tr>)
@@ -55,7 +66,6 @@ class BookItem extends Component {
   }
 
   render() {
-    console.log(this.props.toggleBook)
     return this.renderForm()
   }
   }
