@@ -32,7 +32,9 @@ class BookInput extends Component {
   }
 
   handleClick = () => {
-    this.props.addBook({ ...this.state })
+    if (this.state.isbn.length >= 7) {
+      this.props.addBook({ ...this.state })
+    }
     this.setState({
       isbn: '',
       name: '',
@@ -47,7 +49,7 @@ class BookInput extends Component {
       <div className="div">
         <div>
           <label htmlFor="ISBN">ISBN :</label>
-          <input type="text" id="ISBN" value={this.state.isbn} onChange={this.handleisbn} />
+          <input type="text" id="ISBN" value={this.state.isbn}onChange={this.handleisbn} />
         </div>
         <div>
           <label htmlFor="Name">Name :</label>

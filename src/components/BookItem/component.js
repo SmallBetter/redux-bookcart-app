@@ -1,18 +1,63 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './assets/style.css'
 
-const BookItem = ({ isbn, name, price, quantity, totalprice, removeBook }) => (
-  <tr>
-    <td>{isbn}</td>
-    <td>{name}</td>
-    <td>{price}</td>
-    <td>{quantity}</td>
-    <td>{totalprice}</td>
-    <td>
-      <button>Edit</button>
-      <button onClick={() => removeBook(isbn)}>Delete</button>
-    </td>
-  </tr>
-  )
+class BookItem extends Component {
+
+  state = {
+    name: this.props.name,
+    price: this.props.price,
+    quantity: this.props.quantity
+  }
+
+  handlename = event => {
+    this.setState({
+      name: event.target.value
+    })
+  }
+  handleprice = event => {
+    this.setState({
+      price: event.target.value
+    })
+  }
+  handlequantity = event => {
+    this.setState({
+      quantity: event.target.value
+    })
+  }
+
+  renderForm = () => {
+    if (!this.props.isediting) {
+      return (<tr>
+        <td>{this.props.isbn}</td>
+        <td><input type="text" value={this.state.name} onChange={this.handlename} /></td>
+        <td><input type="text" value={this.state.price} onChange={this.handleprice} /></td>
+        <td><input type="text" value={this.state.quantity} onChange={this.handlequantity} /></td>
+        <td>{this.props.totalprice}</td>
+        <td>
+          <button onClick={() => this.props.toggleBook(this.props.isbn)}>Save</button>
+          <button onClick={() => this.props.removeBook(this.props.isbn)}>Delete</button>
+        </td>
+      </tr>)
+    }
+    return (
+      <tr>
+        <td>{this.props.isbn}</td>
+        <td>{this.props.name}</td>
+        <td>{this.props.price}</td>
+        <td>{this.props.quantity}</td>
+        <td>{this.props.totalprice}</td>
+        <td>
+          <button onClick={() => this.props.toggleBook(this.props.isbn)}>Edit</button>
+          <button onClick={() => this.props.removeBook(this.props.isbn)}>Delete</button>
+        </td>
+      </tr>
+    )
+  }
+
+  render() {
+    console.log(this.props.toggleBook)
+    return this.renderForm()
+  }
+  }
 
 export default BookItem

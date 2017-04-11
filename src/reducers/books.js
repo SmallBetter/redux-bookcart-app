@@ -14,9 +14,16 @@ export default (books = initialStore.books, action) => {
         name: action.payload.name,
         price: action.payload.price,
         quantity: action.payload.quantity,
-        totalprice: action.payload.price * action.payload.quantity
+        totalprice: action.payload.price * action.payload.quantity,
+        isediting: true
       }]
     }
+
+    case TYPE.BOOK.TOGGLE: {
+      return books.map(book =>
+        book.isbn === action.payload.isbn ? { ...book, isediting: !book.isediting } : book)
+    }
+
     default: {
       return books
     }

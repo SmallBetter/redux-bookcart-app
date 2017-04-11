@@ -8,3 +8,7 @@ export const removeBook = isbn => ({
   type: TYPE.BOOK.REMOVE,
   payload: { isbn }
 })
+export const toggleBook = isbn => ({
+  type: TYPE.BOOK.TOGGLE,
+  payload: { isbn }
+})
