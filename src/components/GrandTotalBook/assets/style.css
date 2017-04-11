@@ -1,3 +1,10 @@
-p {
+.p {
+  width: 1070px;
+  margin: 1px auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 2px solid #cbcbcb;
+  padding: 0.5rem 1rem;
   text-align: left;
 }

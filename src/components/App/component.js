@@ -3,7 +3,7 @@ import Example from '../BookInput'
 import BookList from '../BookList'
 import logo from './assets/logo.svg'
 import './assets/style.css'
-import GrandTotalBook from '../GrandTotalBook/component'
+import GrandTotalBook from '../GrandTotalBook'
 
 const App = () => (
   <div className="App">
