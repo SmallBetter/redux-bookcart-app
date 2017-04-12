@@ -1,18 +1,20 @@
 export const initialStore = {
   books: [
     {
-      isbn: 5124257,
+      id: 1,
+      isbn: '51242577',
       name: 'Smallbetter 1',
-      price: 200,
-      quantity: 15,
-      totalprice: 3000,
+      price: '200',
+      quantity: '10',
+      totalprice: 2000,
       isediting: false
     },
     {
-      isbn: 5124255,
+      id: 2,
+      isbn: '51242550',
       name: 'Smallbetter 2',
-      price: 100,
-      quantity: 2,
+      price: '100',
+      quantity: '2',
       totalprice: 200,
       isediting: true
     }

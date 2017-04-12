@@ -5,3 +5,10 @@ td {
   overflow: visible;
   padding: 0.5rem 1rem;
 }
+
+.item {
+  font-size: 14px;
+  border: 2px solid #8e8e8e;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

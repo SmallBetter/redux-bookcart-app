@@ -1,5 +1,5 @@
 import { mapStateToProps, mapDispatchToProps } from '../container'
-import { increaseNumber } from '../../../actions/example'
+import { increaseNumber } from '../../../actions/book'
 import { initialStore } from '../../../store'
 
 describe('Example Container', () => {

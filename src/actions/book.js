@@ -4,15 +4,15 @@ export const addBook = ({ isbn, name, price, quantity }) => ({
   type: TYPE.BOOK.ADD,
   payload: { isbn, name, price, quantity }
 })
-export const removeBook = isbn => ({
+export const removeBook = id => ({
   type: TYPE.BOOK.REMOVE,
-  payload: { isbn }
+  payload: { id }
 })
-export const toggleBook = isbn => ({
+export const toggleBook = id => ({
   type: TYPE.BOOK.TOGGLE,
-  payload: { isbn }
+  payload: { id }
 })
-export const editBook = ({ isbn, name, price, quantity }) => ({
+export const editBook = ({ id, isbn, name, price, quantity }) => ({
   type: TYPE.BOOK.EDIT,
-  payload: { isbn, name, price, quantity }
+  payload: { id, isbn, name, price, quantity }
 })

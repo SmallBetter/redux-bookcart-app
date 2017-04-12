@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import './assets/style.css'
 
 class BookInput extends Component {
@@ -11,30 +11,41 @@ class BookInput extends Component {
   }
 
   handleisbn = event => {
-    this.setState({
-      isbn: event.target.value
-    })
+    if (!isNaN(event.target.value) && event.target.value.length < 9) {
+      this.setState({
+        isbn: event.target.value
+      })
+    }
   }
+
   handlename = event => {
     this.setState({
       name: event.target.value
     })
   }
+
   handleprice = event => {
-    this.setState({
-      price: event.target.value
-    })
+    if (!isNaN(event.target.value)) {
+      this.setState({
+        price: event.target.value
+      })
+    }
   }
+
   handlequantity = event => {
-    this.setState({
-      quantity: event.target.value
-    })
+    if (!isNaN(event.target.value)) {
+      this.setState({
+        quantity: event.target.value
+      })
+    }
   }
 
   handleClick = () => {
-    if (this.state.isbn.length >= 7) {
-      this.props.addBook({ ...this.state })
-    }
+    const State = this.state
+    if (State.isbn.length >= 8 &&
+      State.name.length > 0 &&
+      State.price > 0 &&
+      State.quantity > 0) { this.props.addBook({ ...this.state }) }
     this.setState({
       isbn: '',
       name: '',
@@ -49,7 +60,7 @@ class BookInput extends Component {
       <div className="div">
         <div>
           <label htmlFor="ISBN">ISBN :</label>
-          <input type="text" id="ISBN" value={this.state.isbn}onChange={this.handleisbn} />
+          <input type="text" id="ISBN" value={this.state.isbn} onChange={this.handleisbn} />
         </div>
         <div>
           <label htmlFor="Name">Name :</label>
@@ -69,6 +80,10 @@ class BookInput extends Component {
       </div>
     )
   }
+}
+
+BookInput.propTypes = {
+  addBook: PropTypes.func.isRequired
 }
 
 export default BookInput

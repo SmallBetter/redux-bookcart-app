@@ -1,5 +1,5 @@
 /* eslint-disable prefer-arrow-callback */
-import { increaseNumber } from '../example'
+import { increaseNumber } from '../book'
 import TYPE from '../types'
 
 describe('Example Reducer', () => {
