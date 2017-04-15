@@ -32,17 +32,10 @@ class BookItem extends Component {
   }
 
   handleClick = () => {
-    const State = this.state
-    if (State.name.length > 0 &&
-      State.price > 0 &&
-      State.quantity > 0) { this.props.editBook({ ...this.state }) }
-    this.setState({
-      id: this.props.id,
-      isbn: this.props.isbn,
-      name: this.props.name,
-      price: this.props.price,
-      quantity: this.props.quantity
-    })
+    const { name, price, quantity } = { ...this.state }
+    if (name.length > 0 && price > 0 && quantity > 0) {
+      this.props.editBook({ ...this.state })
+    }
   }
 
   renderForm = () => {
