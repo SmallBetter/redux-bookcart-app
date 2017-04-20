@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
 import BookItem from './component'
-import { removeBook, toggleBook, editBook } from '../../actions/book'
+import { removeBook, toggleBook, editBook, addBuyBook, buyBook } from '../../actions/book'
 
-const mapStateToProps = (state, props) => ({ props })
-const mapDispatchToProps = { removeBook, toggleBook, editBook }
+export const mapStateToProps = (_, props) => props
+export const mapDispatchToProps = { removeBook, toggleBook, editBook, addBuyBook, buyBook }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookItem)

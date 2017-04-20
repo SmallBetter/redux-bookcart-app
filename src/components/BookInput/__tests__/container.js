@@ -1,18 +1,12 @@
-import { mapStateToProps, mapDispatchToProps } from '../container'
-import { increaseNumber } from '../../../actions/book'
-import { initialStore } from '../../../store'
+import { addBook } from '../../../actions/book'
+import { mapDispatchToProps } from '../container'
 
-describe('Example Container', () => {
-  it('mapStateToProps', () => {
-    const props = mapStateToProps(initialStore)
-    const keyProps = Object.keys(props)
+jest.mock('../component', () => jest.fn())
+jest.mock('../../../actions/book', () => 'actions')
 
-    expect(keyProps).toEqual(['number'])
-    expect(props.number).toBe(initialStore.example.number)
-  })
-
+describe('BookInput Container', () => {
   it('mapDispatchToProps', () => {
     expect(Object.keys(mapDispatchToProps)).toHaveLength(1)
-    expect(mapDispatchToProps.increaseNumber).toBe(increaseNumber)
+    expect(mapDispatchToProps.removeBook).toBe(addBook)
   })
 })

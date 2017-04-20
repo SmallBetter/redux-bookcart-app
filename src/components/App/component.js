@@ -4,6 +4,7 @@ import BookList from '../BookList'
 import logo from './assets/logo.svg'
 import './assets/style.css'
 import GrandTotalBook from '../GrandTotalBook'
+import BuyList from '../BuyList'
 
 const App = () => (
   <div className="App">
@@ -16,6 +17,7 @@ const App = () => (
       <Example />
       <BookList />
       <GrandTotalBook />
+      <BuyList />
     </div>
   </div>
 )

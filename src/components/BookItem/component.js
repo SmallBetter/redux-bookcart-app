@@ -37,9 +37,15 @@ class BookItem extends Component {
       this.props.editBook({ ...this.state })
     }
   }
+  buyClick = () => {
+    const { price, quantity } = { ...this.state }
+    if (price > 0 && quantity <= this.props.quantity) {
+      this.props.buyBook({ ...this.state })
+    }
+  }
 
   renderForm = () => {
-    if (!this.props.isediting) {
+    if (this.props.isediting) {
       return (<tr>
         <td>{this.props.isbn}</td>
         <td><input type="text" className="item" value={this.state.name} onChange={this.handlename} /></td>
@@ -51,6 +57,21 @@ class BookItem extends Component {
           <button onClick={() => this.props.removeBook(this.props.id)}>Delete</button>
         </td>
       </tr>)
+    } else if (this.props.buy) {
+      return (
+        <tr>
+          <td>{this.props.isbn}</td>
+          <td>{this.props.name}</td>
+          <td>{this.props.price}</td>
+          <td><input type="text" className="item" value={this.state.quantity} onChange={this.handlequantity} /></td>
+          <td>{this.props.totalprice}</td>
+          <td>
+            <div>
+              <button onClick={this.buyClick}>Buy</button>
+            </div>
+          </td>
+        </tr>
+      )
     }
     return (
       <tr>
@@ -60,8 +81,11 @@ class BookItem extends Component {
         <td>{this.props.quantity}</td>
         <td>{this.props.totalprice}</td>
         <td>
-          <button onClick={() => this.props.toggleBook(this.props.id)}>Edit</button>
-          <button onClick={() => this.props.removeBook(this.props.id)}>Delete</button>
+          <div>
+            <button onClick={() => this.props.toggleBook(this.props.id)}>Edit</button>
+            <button onClick={() => this.props.removeBook(this.props.id)}>Delete</button>
+            <button onClick={() => this.props.addBuyBook(this.props.id)}>Add Buy</button>
+          </div>
         </td>
       </tr>
     )
@@ -74,15 +98,18 @@ class BookItem extends Component {
 
 BookItem.propTypes = {
   id: PropTypes.number.isRequired,
-  isbn: PropTypes.string.isRequired,
+  isbn: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
-  quantity: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
   totalprice: PropTypes.number.isRequired,
   isediting: PropTypes.bool.isRequired,
+  buy: PropTypes.bool.isRequired,
   removeBook: PropTypes.func.isRequired,
   toggleBook: PropTypes.func.isRequired,
-  editBook: PropTypes.func.isRequired
+  editBook: PropTypes.func.isRequired,
+  addBuyBook: PropTypes.func.isRequired,
+  buyBook: PropTypes.func.isRequired
 }
 
 export default BookItem

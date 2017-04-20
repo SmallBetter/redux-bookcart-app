@@ -1,25 +1,27 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Example from '../component'
+import BookInput from '../component'
 
-describe('Example', () => {
-  let component
+describe('BookInput', () => {
   const defaultProps = {
-    number: 10,
-    increaseNumber: jest.fn()
+    addBook: () => true
   }
 
-  beforeEach(() => {
-    component = shallow(<Example {...defaultProps} />)
-  })
+  const setup = props => {
+    const component = shallow(<BookInput {...defaultProps} />)
+    component.setProps(props)
+    return component
+  }
 
   it('default', () => {
-    expect(component.text()).toBe('[ - 10 - ] Increase')
-    expect(component.find('button')).toHaveLength(1)
-  })
+    const component = setup()
+    console.log(component.debug())
 
-  it('handle increaseNumber', () => {
-    component.find('button').simulate('click')
-    expect(defaultProps.increaseNumber).toHaveBeenCalledTimes(1)
+    expect(component.find('div')).toHaveLength(6)
+    expect(component.find('input[id="ISBN"]')).toHaveLength(1)
+    expect(component.find('input[id="Name"]')).toHaveLength(1)
+    expect(component.find('input[id="Price"]')).toHaveLength(1)
+    expect(component.find('input[id="Quantity"]')).toHaveLength(1)
+    expect(component.find('button[children="Add to list"]')).toHaveLength(1)
   })
 })

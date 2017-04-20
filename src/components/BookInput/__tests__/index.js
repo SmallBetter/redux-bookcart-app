@@ -1,7 +1,9 @@
 import Index from '../'
 import Container from '../container'
 
-describe('Example Wrapper', () => {
+jest.mock('../container', () => 'container')
+
+describe('PageRegister Wrapper', () => {
   it('wrapper', () => {
     expect(Index).toBe(Container)
   })
