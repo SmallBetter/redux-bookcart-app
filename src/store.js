@@ -1,11 +1,4 @@
 export const initialStore = {
-  buyitem: [{
-    id: 1,
-    name: 'Smallbetter 1',
-    price: 200,
-    quantity: 4,
-    totalprice: 800
-  }],
   books: [
     {
       id: 1,

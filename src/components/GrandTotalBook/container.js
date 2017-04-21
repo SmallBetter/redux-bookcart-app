@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import GrandTotalBook from './component'
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   books: state.books
 })
 
