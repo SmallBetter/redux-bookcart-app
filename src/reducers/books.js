@@ -35,8 +35,6 @@ export default (books = initialStore.books, action) => {
       return books.map(book => book.id === action.payload.id ?
       {
         ...book,
-        id: action.payload.id,
-        isbn: action.payload.isbn,
         name: action.payload.name,
         price: +action.payload.price,
         quantity: +action.payload.quantity,

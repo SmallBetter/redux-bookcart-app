@@ -30,8 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "npm run build && gh-pages -d build",
-    "test": "react-scripts test --env=jsdom",
-    "coverage": "npm test -- --coverage --collectCoverageFrom=src/**/*js --collectCoverageFrom=!{src/{index.js,utils/**},**/{__stories__,__tests__,_assets_}/**} && start coverage/lcov-report/index.html",
+    "test": "node ./scripts/test.js",
+    "coverage": "npm test +c",
     "lint": "eslint src",
     "storybook": "start http://localhost:9009 && start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"

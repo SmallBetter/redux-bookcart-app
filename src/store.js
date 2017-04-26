@@ -9,26 +9,6 @@ export const initialStore = {
       totalprice: 2000,
       isediting: false,
       buy: false
-    },
-    {
-      id: 2,
-      isbn: 51242550,
-      name: 'Smallbetter 2',
-      price: 100,
-      quantity: 2,
-      totalprice: 200,
-      isediting: false,
-      buy: true
-    },
-    {
-      id: 3,
-      isbn: 51242547,
-      name: 'Smallbetter 3',
-      price: 100,
-      quantity: 5,
-      totalprice: 500,
-      isediting: true,
-      buy: false
     }
   ]
 }

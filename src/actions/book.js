@@ -12,9 +12,9 @@ export const toggleBook = id => ({
   type: TYPE.BOOK.TOGGLE,
   payload: { id }
 })
-export const editBook = ({ id, isbn, name, price, quantity }) => ({
+export const editBook = ({ id, name, price, quantity }) => ({
   type: TYPE.BOOK.EDIT,
-  payload: { id, isbn, name, price, quantity }
+  payload: { id, name, price, quantity }
 })
 export const addBuyBook = id => ({
   type: TYPE.BOOK.ADDBUY,

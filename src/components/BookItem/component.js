@@ -5,7 +5,6 @@ class BookItem extends Component {
 
   state = {
     id: this.props.id,
-    isbn: this.props.isbn,
     name: this.props.name,
     price: this.props.price,
     quantity: this.props.quantity
