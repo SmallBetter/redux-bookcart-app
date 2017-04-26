@@ -3,6 +3,18 @@ import { initialStore } from '../../store'
 import TYPE from '../../actions/types'
 
 describe('Books Reducer', () => {
+  const books = [
+    {
+      id: 1,
+      isbn: 51242577,
+      name: 'Smallbetter 1',
+      price: 200,
+      quantity: 10,
+      totalprice: 2000,
+      isediting: false,
+      buy: false
+    }
+  ]
   it(TYPE.BOOK.ADD, () => {
     const currentState = initialStore.books
     const expectedState = []
@@ -15,11 +27,12 @@ describe('Books Reducer', () => {
         quantity: 99
       }
     })
+    expect(receiveState).not.toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
   })
 
   it(TYPE.BOOK.REMOVE, () => {
-    const currentState = initialStore.books
+    const currentState = books
     const expectedState = []
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.REMOVE,
@@ -27,11 +40,12 @@ describe('Books Reducer', () => {
         id: 1
       }
     })
+    expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
   })
 
   it(TYPE.BOOK.EDIT, () => {
-    const currentState = initialStore.books
+    const currentState = books
     const expectedState = []
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.EDIT,
@@ -42,11 +56,13 @@ describe('Books Reducer', () => {
         quantity: 99
       }
     })
+    expect(receiveState).not.toEqual(expectedState)
+    expect(receiveState).not.toBe(currentState)
     expect(receiveState).not.toBe(expectedState)
   })
 
   it(TYPE.BOOK.TOGGLE, () => {
-    const currentState = initialStore.books
+    const currentState = books
     const expectedState = []
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.TOGGLE,
@@ -58,7 +74,7 @@ describe('Books Reducer', () => {
   })
 
   it(TYPE.BOOK.ADDBUY, () => {
-    const currentState = initialStore.books
+    const currentState = books
     const expectedState = []
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.ADDBUY,
@@ -66,6 +82,7 @@ describe('Books Reducer', () => {
         id: 1
       }
     })
+    expect(receiveState).not.toEqual(currentState)
     expect(receiveState).not.toBe(expectedState)
   })
 
