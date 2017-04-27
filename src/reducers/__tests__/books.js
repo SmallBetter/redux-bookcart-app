@@ -17,21 +17,19 @@ describe('Books Reducer', () => {
   ]
 
   it(TYPE.BOOK.ADD, () => {
-    const currentState = books
-    const expectedState = []
+    const currentState = []
+    const expectedState = books
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.ADD,
       payload: {
-        isbn: 99999999,
-        name: 'Smallbetter 4',
-        price: 999,
-        quantity: 99
+        isbn: 51242577,
+        name: 'Smallbetter 1',
+        price: 200,
+        quantity: 10
       }
     })
-    expect(receiveState).not.toEqual(expectedState)
+    expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.REMOVE, () => {
@@ -45,24 +43,19 @@ describe('Books Reducer', () => {
     })
     expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
   })
 
-  it(TYPE.BOOK.REMOVE, () => {
+  it('TYPE.BOOK.REMOVE 2', () => {
     const currentState = books
-    const expectedState = []
+    const expectedState = books
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.REMOVE,
       payload: {
         id: 0
       }
     })
-    expect(receiveState).not.toEqual(expectedState)
-    expect(receiveState).toEqual(currentState)
-    expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
+    expect(receiveState).toEqual(expectedState)
+    expect(receiveState).toBe(expectedState)
   })
 
   it(TYPE.BOOK.EDIT, () => {
@@ -90,38 +83,55 @@ describe('Books Reducer', () => {
     })
     expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.TOGGLE, () => {
     const currentState = books
-    const expectedState = []
+    const expectedState = [
+      {
+        id: 1,
+        isbn: 51242577,
+        name: 'Smallbetter 1',
+        price: 200,
+        quantity: 10,
+        totalprice: 2000,
+        isediting: true,
+        buy: false
+      }
+    ]
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.TOGGLE,
       payload: {
         id: 1
       }
     })
-    expect(receiveState).not.toEqual(expectedState)
+    expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.ADDBUY, () => {
     const currentState = books
-    const expectedState = []
+    const expectedState = [
+      {
+        id: 1,
+        isbn: 51242577,
+        name: 'Smallbetter 1',
+        price: 200,
+        quantity: 10,
+        totalprice: 2000,
+        isediting: false,
+        buy: true
+      }
+    ]
+
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.ADDBUY,
       payload: {
         id: 1
       }
     })
-    expect(receiveState).not.toEqual(expectedState)
+    expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.BUY, () => {
@@ -147,35 +157,20 @@ describe('Books Reducer', () => {
     })
     expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.BUY, () => {
     const currentState = books
-    const expectedState = [
-      {
-        id: 1,
-        isbn: 51242577,
-        name: 'Smallbetter 1',
-        price: 200,
-        quantity: 9,
-        totalprice: 1800,
-        isediting: false,
-        buy: false
-      }
-    ]
+    const expectedState = books
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.BUY,
       payload: {
         id: 1,
-        quantity: 1
+        quantity: 0
       }
     })
     expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
-    expect(receiveState).not.toBe(currentState)
-    expect(receiveState).not.toBe(books)
   })
 
   it('initial', () => {
