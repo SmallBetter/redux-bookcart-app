@@ -26,24 +26,21 @@ export default (books = initialStore.books, action) => {
 
     case TYPE.BOOK.TOGGLE: {
       if (books.some(book => book.id === action.payload.id)) {
-        return books.map(book =>
-        book.id === action.payload.id ? { ...book, isediting: !book.isediting } : book)
+        return books.map(book => ({ ...book, isediting: !book.isediting }))
       }
       return books
     }
 
     case TYPE.BOOK.ADDBUY: {
       if (books.some(book => book.id === action.payload.id)) {
-        return books.map(book =>
-          book.id === action.payload.id ? { ...book, buy: !book.buy } : book)
+        return books.map(book => ({ ...book, buy: !book.buy }))
       }
       return books
     }
 
     case TYPE.BOOK.EDIT: {
       if (books.some(book => book.id === action.payload.id)) {
-        return books.map(book => book.id === action.payload.id ?
-        {
+        return books.map(book => ({
           ...book,
           name: action.payload.name,
           price: +action.payload.price,
@@ -51,22 +48,21 @@ export default (books = initialStore.books, action) => {
           totalprice: action.payload.price * action.payload.quantity,
           isediting: false,
           buy: false
-        } : book)
+        }))
       }
       return books
     }
 
     case TYPE.BOOK.BUY: {
       if (books.some(book => book.id === action.payload.id)) {
-        return books.map(book => book.id === action.payload.id ?
-        {
+        return books.map(book => ({
           ...book,
           price: book.price,
           quantity: (book.quantity - action.payload.quantity),
           totalprice: book.price * (book.quantity - action.payload.quantity),
           isediting: false,
           buy: false
-        } : book)
+        }))
       }
       return books
     }
