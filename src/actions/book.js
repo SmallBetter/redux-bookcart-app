@@ -20,7 +20,7 @@ export const addBuyBook = id => ({
   type: TYPE.BOOK.ADDBUY,
   payload: { id }
 })
-export const buyBook = ({ id, price, quantity }) => ({
+export const buyBook = ({ id, quantity }) => ({
   type: TYPE.BOOK.BUY,
-  payload: { id, price, quantity }
+  payload: { id, quantity }
 })

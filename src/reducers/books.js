@@ -48,9 +48,9 @@ export default (books = initialStore.books, action) => {
       return books.map(book => book.id === action.payload.id ?
       {
         ...book,
-        price: +action.payload.price,
+        price: book.price,
         quantity: (book.quantity - action.payload.quantity),
-        totalprice: action.payload.price * (book.quantity - action.payload.quantity),
+        totalprice: book.price * (book.quantity - action.payload.quantity),
         isediting: false,
         buy: false
       } : book)

@@ -15,8 +15,9 @@ describe('Books Reducer', () => {
       buy: false
     }
   ]
+
   it(TYPE.BOOK.ADD, () => {
-    const currentState = initialStore.books
+    const currentState = books
     const expectedState = []
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.ADD,
@@ -29,6 +30,8 @@ describe('Books Reducer', () => {
     })
     expect(receiveState).not.toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.REMOVE, () => {
@@ -42,23 +45,53 @@ describe('Books Reducer', () => {
     })
     expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
+  })
+
+  it(TYPE.BOOK.REMOVE, () => {
+    const currentState = books
+    const expectedState = []
+    const receiveState = booksReducer(currentState, {
+      type: TYPE.BOOK.REMOVE,
+      payload: {
+        id: 0
+      }
+    })
+    expect(receiveState).not.toEqual(expectedState)
+    expect(receiveState).toEqual(currentState)
+    expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.EDIT, () => {
     const currentState = books
-    const expectedState = []
+    const expectedState = [
+      {
+        id: 1,
+        isbn: 51242577,
+        name: 'Smallbetter 1',
+        price: 999,
+        quantity: 99,
+        totalprice: 98901,
+        isediting: false,
+        buy: false
+      }
+    ]
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.EDIT,
       payload: {
         id: 1,
-        name: 'Smallbetter 4',
+        name: 'Smallbetter 1',
         price: 999,
         quantity: 99
       }
     })
-    expect(receiveState).not.toEqual(expectedState)
-    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.TOGGLE, () => {
@@ -70,7 +103,10 @@ describe('Books Reducer', () => {
         id: 1
       }
     })
+    expect(receiveState).not.toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.ADDBUY, () => {
@@ -82,13 +118,26 @@ describe('Books Reducer', () => {
         id: 1
       }
     })
-    expect(receiveState).not.toEqual(currentState)
+    expect(receiveState).not.toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
   })
 
   it(TYPE.BOOK.BUY, () => {
-    const currentState = initialStore.books
-    const expectedState = []
+    const currentState = books
+    const expectedState = [
+      {
+        id: 1,
+        isbn: 51242577,
+        name: 'Smallbetter 1',
+        price: 200,
+        quantity: 9,
+        totalprice: 1800,
+        isediting: false,
+        buy: false
+      }
+    ]
     const receiveState = booksReducer(currentState, {
       type: TYPE.BOOK.BUY,
       payload: {
@@ -96,7 +145,37 @@ describe('Books Reducer', () => {
         quantity: 1
       }
     })
+    expect(receiveState).toEqual(expectedState)
     expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
+  })
+
+  it(TYPE.BOOK.BUY, () => {
+    const currentState = books
+    const expectedState = [
+      {
+        id: 1,
+        isbn: 51242577,
+        name: 'Smallbetter 1',
+        price: 200,
+        quantity: 9,
+        totalprice: 1800,
+        isediting: false,
+        buy: false
+      }
+    ]
+    const receiveState = booksReducer(currentState, {
+      type: TYPE.BOOK.BUY,
+      payload: {
+        id: 1,
+        quantity: 1
+      }
+    })
+    expect(receiveState).toEqual(expectedState)
+    expect(receiveState).not.toBe(expectedState)
+    expect(receiveState).not.toBe(currentState)
+    expect(receiveState).not.toBe(books)
   })
 
   it('initial', () => {
