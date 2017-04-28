@@ -16,6 +16,7 @@ describe('Books Reducer', () => {
     }
   ]
 
+
   it(TYPE.BOOK.ADD, () => {
     const currentState = []
     const expectedState = books
@@ -35,16 +36,8 @@ describe('Books Reducer', () => {
   it('TYPE.BOOK.ADD 2', () => {
     const currentState = books
     const expectedState = [
+      ...books,
       {
-        id: 1,
-        isbn: 51242577,
-        name: 'Smallbetter 1',
-        price: 200,
-        quantity: 10,
-        totalprice: 2000,
-        isediting: false,
-        buy: false
-      }, {
         id: 2,
         isbn: 51242578,
         name: 'Smallbetter 2',
