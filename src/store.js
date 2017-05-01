@@ -1,4 +1,10 @@
 export const initialStore = {
+  pages: {
+    home: true
+  },
+  searchs: {
+    text: ''
+  },
   books: [
     {
       id: 1,

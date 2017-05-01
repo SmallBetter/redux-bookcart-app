@@ -11,7 +11,7 @@ th {
   width: 175px;
   border-left: 2px solid #cbcbcb;
   font-size: inherit;
-  margin: 0 auto;
+  margin: 10px 10px;
   overflow: visible;
   padding: 0.5rem 1rem;
 
@@ -31,7 +31,12 @@ thead {
   text-align: left;
   vertical-align: bottom;
 }
+
 button {
   margin: 2px;
 }
 
+.Search {
+  margin: 5px 175px;
+  text-align: left;
+}

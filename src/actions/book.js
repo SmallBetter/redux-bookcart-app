@@ -24,3 +24,7 @@ export const buyBook = ({ id, quantity }) => ({
   type: TYPE.BOOK.BUY,
   payload: { id, quantity }
 })
+export const bookSearch = text => ({
+  type: TYPE.BOOK.SEACH,
+  payload: { text }
+})
