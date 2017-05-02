@@ -4,7 +4,7 @@ import BookItem from '../BookItem'
 import SearchBook from '../SearchBook'
 
 
-const BookList = ({ books, searchs }) => (
+const BookList = ({ books, searchs, item }) => (
   <div>
     <div className="Search">
       <SearchBook />
@@ -23,6 +23,7 @@ const BookList = ({ books, searchs }) => (
       <tbody>
         {books
           .filter(book => book.name.includes(searchs.text))
+          .filter(book => (book.It && item.It) || (book.Book && item.Book))
           .map(book => <BookItem key={book.id} {...book} />)}
       </tbody>
     </table>

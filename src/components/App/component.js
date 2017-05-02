@@ -2,9 +2,10 @@ import React from 'react'
 import BookInput from '../BookInput'
 import BookList from '../BookList'
 import logo from './assets/logo.svg'
-import './assets/style.css'
 import GrandTotalBook from '../GrandTotalBook'
+import './assets/style.css'
 import Page from '../Page'
+import Login from '../Login'
 
 const App = ({ pages }) => {
   const renderHome = () => {
@@ -13,7 +14,7 @@ const App = ({ pages }) => {
         <div className="App">
           <div className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to React</h2>
+            <Login />
             <Page />
           </div>
           <div className="App-intro">
@@ -28,7 +29,7 @@ const App = ({ pages }) => {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+          <Login />
           <Page />
         </div>
         <div className="App-intro">

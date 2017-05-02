@@ -7,7 +7,8 @@ class BookInput extends Component {
     isbn: '',
     name: '',
     price: '',
-    quantity: ''
+    quantity: '',
+    item: ''
   }
 
   handleisbn = event => {
@@ -40,17 +41,23 @@ class BookInput extends Component {
     }
   }
 
+  Change = event => {
+    this.setState({
+      item: event.target.value
+    })
+  }
+
   handleClick = () => {
     const State = this.state
-    if (State.isbn.length >= 8 &&
-      State.name.length > 0 &&
-      State.price > 0 &&
-      State.quantity > 0) { this.props.addBook({ ...this.state }) }
+    if (State.isbn.length >= 8 && State.name.length > 0 &&
+      State.price > 0 && State.quantity > 0 &&
+      State.item !== 'Select an Option') { this.props.addBook({ ...this.state }) }
     this.setState({
       isbn: '',
       name: '',
       price: '',
-      quantity: ''
+      quantity: '',
+      item: ''
     })
   }
 
@@ -73,6 +80,14 @@ class BookInput extends Component {
         <div>
           <label htmlFor="Quantity">Quantity :</label>
           <input type="text" id="Quantity" value={this.state.quantity} onChange={this.handlequantity} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="select1" >Item</label>
+          <select value={this.state.item} onChange={this.Change} className="form-control">
+            <option value="select">Select an Option</option>
+            <option value="Book">Book</option>
+            <option value="It">It</option>
+          </select>
         </div>
         <div>
           <button onClick={this.handleClick}>Add to list</button>

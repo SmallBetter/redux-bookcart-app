@@ -10,6 +10,9 @@ const TYPE = {
   },
   PAGES: {
     HOME: 'PAGES_HOME'
+  },
+  SHOW: {
+    ITEM: 'SHOW_ITEM'
   }
 }
 
