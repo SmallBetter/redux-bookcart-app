@@ -12,6 +12,19 @@ export default (books = initialStore.books, action) => {
     }
 
     case TYPE.BOOK.ADD: {
+      if (action.payload.item.includes('Book')) {
+        return [...books, {
+          id: books.length ? books[books.length - 1].id + 1 : 1,
+          isbn: +action.payload.isbn,
+          name: action.payload.name,
+          price: +action.payload.price,
+          quantity: +action.payload.quantity,
+          totalprice: action.payload.price * action.payload.quantity,
+          isediting: false,
+          buy: false,
+          Book: true
+        }]
+      }
       return [...books, {
         id: books.length ? books[books.length - 1].id + 1 : 1,
         isbn: +action.payload.isbn,
@@ -20,7 +33,8 @@ export default (books = initialStore.books, action) => {
         quantity: +action.payload.quantity,
         totalprice: action.payload.price * action.payload.quantity,
         isediting: false,
-        buy: false
+        buy: false,
+        It: true
       }]
     }
 

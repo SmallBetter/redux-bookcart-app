@@ -1,11 +1,8 @@
 export const initialStore = {
-  pages: {
-    home: true
-  },
-
   item: {
     It: true,
-    Book: false
+    Book: false,
+    home: true
   },
 
   searchs: {

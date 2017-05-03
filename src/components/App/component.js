@@ -7,9 +7,9 @@ import './assets/style.css'
 import Page from '../Page'
 import Login from '../Login'
 
-const App = ({ pages }) => {
+const App = ({ item }) => {
   const renderHome = () => {
-    if (pages.home) {
+    if (item.home) {
       return (
         <div className="App">
           <div className="App-header">

@@ -1,8 +1,8 @@
 import TYPE from './types'
 
-export const addBook = ({ isbn, name, price, quantity }) => ({
+export const addBook = ({ isbn, name, price, quantity, item }) => ({
   type: TYPE.BOOK.ADD,
-  payload: { isbn, name, price, quantity }
+  payload: { isbn, name, price, quantity, item }
 })
 export const removeBook = id => ({
   type: TYPE.BOOK.REMOVE,

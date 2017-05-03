@@ -1,13 +1,12 @@
 import React from 'react'
 import './assets/style.css'
 
-const Page = ({ toggerHome, showItem }) => (
+const Page = ({ showItem }) => (
   <div className="divbutton">
-    <button className="but" onClick={() => toggerHome(true)}>Buy</button>
-    <button className="but" onClick={() => toggerHome(false)}>Sell</button>
-    <button className="but" onClick={() => showItem(true, true)}>All</button>
-    <button className="but" onClick={() => showItem(false, true)}>Book</button>
-    <button className="but" onClick={() => showItem(true, false)}>It</button>
+    <button className="but" onClick={() => showItem(true, true, true)}>Home</button>
+    <button className="but" onClick={() => showItem(false, false, false)}>Sell</button>
+    <button className="but" onClick={() => showItem(false, true, true)}>Book</button>
+    <button className="but" onClick={() => showItem(true, false, true)}>It</button>
   </div>
   )
 

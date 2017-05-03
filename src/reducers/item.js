@@ -6,7 +6,8 @@ export default (item = initialStore.item, action) => {
     case TYPE.SHOW.ITEM: {
       return {
         It: action.payload.It,
-        Book: action.payload.Book
+        Book: action.payload.Book,
+        home: action.payload.home
       }
     }
     default: {
